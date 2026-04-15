@@ -7,14 +7,14 @@ typedef struct {
     uint8_t pc;       // Program Counter
     uint8_t ram[256]; // 256 Byte RAM
     int halted;
-    int zero_flag;    // gesetzt wenn A == 0
+    int zero_flag;    // set if r1 == 0
 } CPU;
 
 void run(CPU* cpu)
 {
     while(!cpu->halted)
     {
-        uint8_t operation = cpu->ram[cpu->pc++];
+        uint8_t operation = cpu->ram[cpu->pc++]; 
         uint8_t arg = cpu->ram[cpu->pc++];
 
         switch(operation)
